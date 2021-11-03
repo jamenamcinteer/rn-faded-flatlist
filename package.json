@@ -1,32 +1,33 @@
 {
-  "name": "rn-faded-scrollview",
-  "version": "1.0.10",
-  "description": "A simple and customizable React Native component that allows you to add fade effect in ScrollView at both ends.",
+  "name": "rn-faded-flatlist",
+  "version": "1.0.0",
+  "description": "A simple and customizable React Native component that allows you to add fade effect in FlatView at both ends.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mak12/rn-faded-scrollview.git"
+    "url": "git+https://github.com/mak12/rn-faded-flatlist.git"
   },
   "keywords": [
     "react-native",
-    "scrollview",
-    "scrollview faded",
-    "faded scrollview",
-    "fadedscrollview",
+    "flatlist",
+    "flatlist faded",
+    "faded flatlist",
+    "fadedflatlist",
     "faded",
     "rn-faded-scrollview",
+    "rn-faded-flatlist",
     "fade",
     "effects"
   ],
-  "author": "Malik Abdul Kawee",
+  "author": "Jamena McInteer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mak12/rn-faded-scrollview/issues"
+    "url": "https://github.com/mak12/rn-faded-flatlist/issues"
   },
-  "homepage": "https://github.com/mak12/rn-faded-scrollview#readme",
+  "homepage": "https://github.com/mak12/rn-faded-flatlist#readme",
   "peerDependencies": {
     "react": "16.11.0",
     "react-native": "0.62.2",
