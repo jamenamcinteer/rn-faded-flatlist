@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, FlatList, View, Platform } from "react-native";
+import { FlatList, View, Platform } from "react-native";
 import PropTypes from "prop-types";
 import LinearGradient from "react-native-linear-gradient";
 const defaultFadeColors = [
@@ -7,7 +7,7 @@ const defaultFadeColors = [
   "rgba(206, 201, 201, 0.6)",
   "rgba(206, 201, 201, 0.9)",
 ];
-export default class RNFadedScrollView extends Component {
+export default class RNFadedFlatList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +60,7 @@ export default class RNFadedScrollView extends Component {
           contentSize.height - this.props.scrollThreshold;
   }
 
-  //To avoid ScrollView RTL issue on andorid.
+  //To avoid FlatList RTL issue on android.
   allowReverse() {
     return Platform.OS == "android" && this.props.isRtl;
   }
@@ -99,7 +99,7 @@ export default class RNFadedScrollView extends Component {
   };
 
   //get start fade view
-  getStartFaade() {
+  getStartFade() {
     return this.props.horizontal ? (
       <LinearGradient
         start={{ x: this.props.isRtl ? 0 : 1, y: 0 }}
@@ -193,7 +193,6 @@ export default class RNFadedScrollView extends Component {
     return (
       <View
         style={[
-          styles.container,
           this.props.containerStyle,
           { flexDirection: this.props.horizontal ? "row" : "column" },
         ]}
@@ -204,7 +203,7 @@ export default class RNFadedScrollView extends Component {
           this.getDivider()}
         <FlatList
           {...this.props}
-          style={[styles.scrollViewStyle, this.props.style]}
+          style={[this.props.style]}
           onContentSizeChange={this.onContentSizeChange}
           scrollEventThrottle={16}
           onScroll={this.onScrolled}
@@ -215,23 +214,14 @@ export default class RNFadedScrollView extends Component {
           this.state.allowEndFade &&
           this.props.allowDivider &&
           this.getDivider()}
-        {this.state.allowStartFade && this.getStartFaade()}
+        {this.state.allowStartFade && this.getStartFade()}
         {endFadeEnable && this.state.allowEndFade && this.getEndFade()}
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-  },
-  scrollViewStyle: {
-    flex: 1,
-  },
-});
-RNFadedScrollView.propTypes = {
+RNFadedFlatList.propTypes = {
   allowStartFade: PropTypes.bool,
   allowEndFade: PropTypes.bool,
   fadeSize: PropTypes.number,
@@ -242,7 +232,7 @@ RNFadedScrollView.propTypes = {
   allowDivider: PropTypes.bool,
   isRtl: PropTypes.bool,
 };
-RNFadedScrollView.defaultProps = {
+RNFadedFlatList.defaultProps = {
   allowStartFade: false,
   allowEndFade: true,
   fadeSize: 20,
